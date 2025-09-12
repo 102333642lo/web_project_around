@@ -1,0 +1,17 @@
+.page {
+  min-width: 1024px;
+  max-width: 1280px;
+  font-family: inter, sans-serif;
+  background-color: black;
+  padding-left: 200px;
+  padding-right: 200px;
+
+}
+
+@media screen and (max-width : 320px) {
+  .page {
+    min-width: 310px;
+    max-width: 320px;
+    padding: 0;
+  }
+}

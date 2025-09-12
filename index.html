@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="lorena">
+    <meta name="description" content="pagina de inicio">
+    <meta name="keywords" content="html,css, proyecto, web">
+    <link rel="stylesheet" href="./index.css">
+    <title>Alrededor The U.S.</title>
+</head>
+
+<body>
+    <div class="page">
+        <header class="header">
+            <div class="header__titulo">
+                Around <span class="header__subtitulo">The U.S.</span></div>
+            <hr class="header__linea">
+        </header>
+        <main class="content">
+            <section class="profile">
+                <img class="imagen__profile" src="./images/Avatar.png" alt="imagen de perfil">
+                <div class="info__profile ">
+                    <h1 class="usuario__profile" id="usuarioProfile">Jacques Cousteau</h1>
+                    <button id="openEditar" type=" submit" class="profile__button_edit"
+                        alt=" lapis de edicion"></button>
+                    <p class="description__profile" id="descriptionProfile">Explorador</p>
+                    <button type="submit" class="profile__button_add" alt="signo de suma"></button>
+                </div>
+                <div id="editor" class="editor">
+                    <div class="editor-form">
+                        <span id="closeEditor" class="close"></span>
+
+                        <h2 class="close_text">Editar perfil</h2>
+                        <form id="formPerfil" class="formPerfil">
+
+                            <input type="text" placeholder="Nombre" id="name" class="input__text" required>
+                            <input type="text" placeholder="Acerca de mí" id="bio" class="input__text" required>
+                            <button id="submit" type="submit" class="form__button_submit">Guardar</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <section class="post">
+                <ul class="post_card">
+                    <li class="card">
+                        <div class="card__content">
+                            <img class="card__image" src="./images/paisaje1.jpg" alt="paisaje">
+                            <h3 class="card__footer">
+                                Valle de Yosemite
+                            </h3>
+
+                            <button id="cardlike" type="button" class=" card__btn like "></button>
+                        </div>
+
+                    </li>
+                    <li class="card">
+                        <div class="card__content">
+                            <img class="card__image" src="./images/paisaje2.png" alt="paisaje">
+                            <h3 class="card__footer">
+                                Lago Louise
+                            </h3>
+                            <button type="button" class=" card__btn like"></button>
+                        </div>
+                    </li>
+                    <li class="card">
+                        <div class="card__content">
+                            <img class="card__image" src="./images/paisaje3.png" alt="paisaje">
+                            <h3 class="card__footer">
+                                Montañas Calvas
+                            </h3>
+                            <button type="button" class="card__btn like"></button>
+                        </div>
+                    </li>
+                    <li class="card">
+                        <div class="card__content">
+                            <img class="card__image" src="./images/paisajes4.png" alt="paisaje">
+                            <h3 class="card__footer">
+                                Latemar
+                            </h3>
+                            <button id="like" type="button" class="card__btn like"></button>
+                        </div>
+                    </li>
+                    <li class="card">
+                        <div class="card__content">
+                            <img class="card__image" src="./images/paisaje5.png" alt="paisaje">
+                            <h3 class="card__footer">
+                                Vanois National...
+                            </h3>
+                            <button id="like" type="button" class="card__btn like"></button>
+                        </div>
+                    </li>
+                    <li class="card">
+                        <div class="card__content">
+                            <img class="card__image" src="./images/paisajes6.png " alt="paisaje">
+                            <h3 class="card__footer">
+                                Lago di Braies
+                            </h3>
+                            <button id="like" type="button" class="card__btn like"></button>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            <script src="index.js"></script>
+        </main>
+        <footer>
+            <div>
+                <p class="footer__copyright"> © 2025 Alrededor The U.S.</p>
+            </div>
+        </footer>
+
+
+
+    </div>
+
+</body>

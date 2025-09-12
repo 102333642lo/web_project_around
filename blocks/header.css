@@ -1,0 +1,32 @@
+.header {
+    color: white;
+    max-width: 880px;
+}
+
+.header__titulo {
+    font-size: 35px;
+    padding-top: 45px;
+    padding-bottom: 41px;
+}
+
+.header__subtitulo {
+    font-size: 15px;
+    vertical-align: super;
+}
+
+.header__linea {
+    margin: 0;
+}
+
+@media screen and (max-width : 320px) {
+    .header__titulo {
+        font-size: 25px;
+        padding-top: 28px;
+        padding-left: 27px;
+        padding-bottom: 32px;
+    }
+
+    .header__subtitulo {
+        font-size: 10px;
+    }
+}
