@@ -8,3 +8,9 @@
       padding: 50px 19px 36px 19px;
     }
   }
+
+  @media screen and (max-width : 320px) {
+    .footer__copyright {
+      padding: 50px 19px 36px 19px;
+    }
+  }

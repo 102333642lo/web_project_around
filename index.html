@@ -22,22 +22,21 @@
             <section class="profile">
                 <img class="imagen__profile" src="./images/Avatar.png" alt="imagen de perfil">
                 <div class="info__profile ">
-                    <h1 class="usuario__profile" id="usuarioProfile">Jacques Cousteau</h1>
-                    <button id="openEditar" type=" submit" class="profile__button_edit"
-                        alt=" lapis de edicion"></button>
-                    <p class="description__profile" id="descriptionProfile">Explorador</p>
+                    <h1 class="usuario__profile" id="usuareProfile">Jacques Cousteau</h1>
+                    <button id="openEdit" type="submit" class="profile__button_edit" alt=" lapis de edicion"></button>
+                    <p class="description__profile" id="bioProfile">Explorador</p>
                     <button type="submit" class="profile__button_add" alt="signo de suma"></button>
                 </div>
-                <div id="editor" class="editor">
+                <div id="edit" class="editor">
                     <div class="editor-form">
-                        <span id="closeEditor" class="close"></span>
+                        <span id="closeEdit" class="close"></span>
 
                         <h2 class="close_text">Editar perfil</h2>
-                        <form id="formPerfil" class="formPerfil">
+                        <form action="" id="formProfile" class="formPerfil">
 
                             <input type="text" placeholder="Nombre" id="name" class="input__text" required>
                             <input type="text" placeholder="Acerca de mí" id="bio" class="input__text" required>
-                            <button id="submit" type="submit" class="form__button_submit">Guardar</button>
+                            <button id="submitForm" disabled type="submit" class="form__button_submit">Guardar</button>
                         </form>
                     </div>
                 </div>
@@ -102,7 +101,7 @@
                     </li>
                 </ul>
             </section>
-            <script src="index.js"></script>
+
         </main>
         <footer>
             <div>
@@ -113,5 +112,7 @@
 
 
     </div>
-
+    <script src="index.js"></script>
 </body>
+
+</html>

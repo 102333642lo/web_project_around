@@ -18,6 +18,15 @@
     margin: 0;
 }
 
+@media screen and (max-width : 880px) {
+    .header__titulo {
+
+        padding-left: 27px;
+    }
+
+
+}
+
 @media screen and (max-width : 320px) {
     .header__titulo {
         font-size: 25px;

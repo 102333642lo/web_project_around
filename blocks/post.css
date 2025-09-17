@@ -13,6 +13,18 @@
 
 }
 
+@media screen and (max-width : 880px) {
+    .post {
+        padding: 46px 8px 0 8px;
+    }
+
+    .post_card {
+        gap: 10px;
+
+    }
+}
+
+
 @media screen and (max-width : 320px) {
     .post {
         padding: 46px 19px 0 19px;
