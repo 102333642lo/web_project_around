@@ -64,7 +64,7 @@
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-.editor-form {
+.editor__form {
     background-color: #fefefe;
     padding: 35px 36px;
     border: 1px solid #888;
@@ -75,7 +75,7 @@
     left: 425px;
 }
 
-.close {
+.editor__close {
     color: #ffff;
     background-image: url(../images/Close\ Icon.png);
     width: 40px;
@@ -88,18 +88,18 @@
 
 }
 
-.edit__text {
+.editor__tiulo {
     color: black;
     font-size: 24px;
     margin: 0px;
 
 }
 
-.close:hover {
+.editor__close:hover {
     opacity: 0.7;
 }
 
-.formPerfil {
+.editor__form-edit {
     color: #C4C4C4;
     padding-top: 54px;
     display: flex;
@@ -108,7 +108,7 @@
     gap: 30px;
 }
 
-.edit__text {
+.editor__text {
     height: 28px;
     border: 0;
     border-bottom: 1px solid #C4C4C4;
@@ -116,7 +116,7 @@
 
 
 
-.edit__btnsubmit {
+.editor__btn-submit {
     width: 358px;
     height: 50px;
     color: #C4C4C4;
@@ -190,7 +190,7 @@
 
 
 
-    .editor-form {
+    .editor__form {
         padding: 25px 22px;
         position: absolute;
         top: 139px;
@@ -198,7 +198,7 @@
     }
 
 
-    .close {
+    .editor__close {
         width: 26px;
         height: 26px;
         position: absolute;
@@ -208,20 +208,20 @@
 
     }
 
-    .formPerfil {
+    .editor__form-edit {
         padding-top: 76px;
         display: flex;
         width: 238px;
     }
 
-    .edit__text {
+    .editor__text {
         height: 17px;
         width: 238px;
     }
 
 
 
-    .edit__btnsubmit {
+    .editor__btn-submit {
         width: 238px;
         height: 46px;
     }
@@ -275,7 +275,7 @@
 
 
 
-    .editor-form {
+    .editor__form {
         padding: 25px 22px;
         position: absolute;
         top: 139px;
@@ -283,7 +283,7 @@
     }
 
 
-    .close {
+    .editor__close {
         width: 26px;
         height: 26px;
         position: absolute;
@@ -293,20 +293,20 @@
 
     }
 
-    .formPerfil {
+    .editor__form-edit {
         padding-top: 76px;
         display: flex;
         width: 238px;
     }
 
-    .edit__text {
+    .editor__text {
         height: 17px;
         width: 238px;
     }
 
 
 
-    .edit__btnsubmit {
+    .editor__btn-submit {
         width: 238px;
         height: 46px;
     }
