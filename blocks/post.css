@@ -4,7 +4,7 @@
     max-width: 880px;
 }
 
-.post_card {
+.post__card {
     padding: 0;
     list-style-type: none;
     display: flex;
@@ -18,7 +18,7 @@
         padding: 46px 8px 0 8px;
     }
 
-    .post_card {
+    .post__card {
         gap: 10px;
 
     }

@@ -3,7 +3,7 @@ const likeButtons = document.querySelectorAll('.card__btn');
 likeButtons.forEach(button => {
     button.addEventListener('click', () => {
         button.classList.toggle('like');
-        button.classList.toggle('dislike'); 3666
+        button.classList.toggle('dislike');
     });
 });
 
