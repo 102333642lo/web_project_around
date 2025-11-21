@@ -42,64 +42,20 @@
                 </div>
             </section>
             <section class="post">
-                <ul class="post__card">
+                <template id="post-template">
                     <li class="card">
                         <div class="card__content">
-                            <img class="card__image" src="./images/paisaje1.jpg" alt="paisaje">
-                            <h3 class="card__footer">
-                                Valle de Yosemite
-                            </h3>
+                            <img class="card__image">
+                            <h3 class="card__footer"></h3>
+                            <button class=" card__like "></button>
+                        </div>
+                    </li>
+                </template>
 
-                            <button id="cardlike" type="button" class=" card__btn like "></button>
-                        </div>
+                <ul id="cards-container" class="post__card">
 
-                    </li>
-                    <li class="card">
-                        <div class="card__content">
-                            <img class="card__image" src="./images/paisaje2.png" alt="paisaje">
-                            <h3 class="card__footer">
-                                Lago Louise
-                            </h3>
-                            <button type="button" class=" card__btn like"></button>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <div class="card__content">
-                            <img class="card__image" src="./images/paisaje3.png" alt="paisaje">
-                            <h3 class="card__footer">
-                                Montañas Calvas
-                            </h3>
-                            <button type="button" class="card__btn like"></button>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <div class="card__content">
-                            <img class="card__image" src="./images/paisajes4.png" alt="paisaje">
-                            <h3 class="card__footer">
-                                Latemar
-                            </h3>
-                            <button id="like" type="button" class="card__btn like"></button>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <div class="card__content">
-                            <img class="card__image" src="./images/paisaje5.png" alt="paisaje">
-                            <h3 class="card__footer">
-                                Vanois National...
-                            </h3>
-                            <button id="like" type="button" class="card__btn like"></button>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <div class="card__content">
-                            <img class="card__image" src="./images/paisajes6.png " alt="paisaje">
-                            <h3 class="card__footer">
-                                Lago di Braies
-                            </h3>
-                            <button id="like" type="button" class="card__btn like"></button>
-                        </div>
-                    </li>
                 </ul>
+
             </section>
 
         </main>

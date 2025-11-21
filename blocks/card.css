@@ -29,8 +29,9 @@
     padding-left: 21px;
 }
 
-.card__btn {
+.card__like {
     border: none;
+    background: url(../images/like.svg) center no-repeat;
     height: 19px;
     width: 21px;
     position: absolute;
@@ -39,15 +40,12 @@
     cursor: pointer;
 }
 
-.dislike {
+.card__like_active {
     background: url(../images/likeblack.png) center no-repeat;
     background-size: cover;
 }
 
-.like {
-    background: url(../images/like.svg) center no-repeat;
-}
+.card__like:hover {
 
-.like:hover {
     opacity: 0.7;
 }
