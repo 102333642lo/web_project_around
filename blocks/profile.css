@@ -133,7 +133,6 @@
     cursor: pointer;
 }
 
-
 .profile__btnadd {
     width: 150px;
     height: 50px;
@@ -151,6 +150,92 @@
 .profile__btnadd:hover {
     opacity: 0.7;
 }
+
+.submit {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.submit__form {
+    background-color: #fefefe;
+    padding: 35px 36px;
+    border: 1px solid #888;
+    color: #C4C4C4;
+    border-radius: 10px;
+    position: absolute;
+    top: 195px;
+    left: 425px;
+}
+
+.submit__close {
+    color: #ffff;
+    background-image: url(../images/Close\ Icon.png);
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: -39px;
+    left: 435px;
+
+}
+
+.submit__tiulo {
+    color: black;
+    font-size: 24px;
+    margin: 0px;
+
+}
+
+.submit__close:hover {
+    opacity: 0.7;
+}
+
+.submit__form-submit {
+    color: #C4C4C4;
+    padding-top: 54px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.submit__name {
+    height: 28px;
+    border: 0;
+    border-bottom: 1px solid #C4C4C4;
+}
+
+.submit__img {
+    height: 28px;
+    border: 0;
+    border-bottom: 1px solid #C4C4C4;
+}
+
+
+
+
+.submit__btn-submit {
+    width: 358px;
+    height: 50px;
+    color: #fefefe;
+    background-color: black;
+}
+
+.form__button_submit:hover {
+    opacity: 0.7;
+}
+
+
+
 
 @media screen and (max-width : 880px) {
     .profile {
@@ -225,6 +310,7 @@
         width: 238px;
         height: 46px;
     }
+
 }
 
 @media screen and (max-width : 320px) {

@@ -25,7 +25,7 @@
                     <h1 class="profile__usuario" id="usuareProfile">Jacques Cousteau</h1>
                     <button id="openEdit" type="submit" class="profile__btnedit" alt=" lapis de edicion"></button>
                     <p class="profile__description" id="bioProfile">Explorador</p>
-                    <button type="submit" class="profile__btnadd" alt="signo de suma"></button>
+                    <button id="openSutmit" type="submit" class="profile__btnadd" alt="signo de suma"></button>
                 </div>
                 <div id="edit" class="editor">
                     <div class="editor__form">
@@ -37,6 +37,20 @@
                             <input type="text" placeholder="Nombre" id="name" class=" editor__text" required>
                             <input type="text" placeholder="Acerca de mí" id="bio" class="editor__text" required>
                             <button id="submitForm" disabled type="submit" class="editor__btn-submit">Guardar</button>
+                        </form>
+                    </div>
+                </div>
+                <div id="update" class="submit">
+                    <div class="submit__form">
+                        <span id="closeSubmit" class="submit__close"></span>
+
+                        <h2 class="submit__tiulo">Nuevo lugar</h2>
+                        <form action="" id="updateFormS" class="submit__form-submit">
+
+                            <input type="text" placeholder="Título" id="title" class=" submit__name " required>
+                            <input type="text" placeholder="Enlace a la imagen" id="link" class="submit__img" required>
+                            <button id="save" disabled type="submit" class="submit__btn-submit">Crear
+                            </button>
                         </form>
                     </div>
                 </div>
