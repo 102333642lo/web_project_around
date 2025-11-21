@@ -57,6 +57,7 @@ function validar() {
         submitForm.disabled = false;
         submitForm.classList.add("activo");
     }
+
 }
 
 
@@ -82,6 +83,12 @@ save.addEventListener("click", function (e) {
     });
 
     card.prepend(clone);
+
+    linkValor.value = "";
+    titleValor.value = "";
+    activSave();
+
+    modalSubmit.style.display = "none";
 
 
 });
