@@ -49,3 +49,62 @@
 
     opacity: 0.7;
 }
+
+.card__delet {
+    border: none;
+    background: url(../images/delet.png) center no-repeat;
+    height: 19px;
+    width: 21px;
+    position: absolute;
+    top: 30px;
+    right: 18px;
+    cursor: pointer;
+}
+
+.card__delet:hover {
+
+    opacity: 0.7;
+}
+
+.image_modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.image__close {
+    color: #ffff;
+    background-image: url(../images/Close\ Icon.png);
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: -10px;
+    right: 0px;
+
+}
+
+.image__close:hover {
+    opacity: 0.7;
+}
+
+.image__container {
+    padding: 35px 36px;
+    color: #C4C4C4;
+    position: absolute;
+    top: 90px;
+    left: auto;
+
+}
+
+.modal__image {
+    max-width: 75vw;
+    max-height: 75vh;
+
+}

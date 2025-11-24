@@ -222,7 +222,6 @@
 
 
 
-
 .submit__btn-submit {
     width: 358px;
     height: 50px;
@@ -289,8 +288,6 @@
         position: absolute;
         top: -29px;
         left: 289px;
-
-
     }
 
     .editor__form-edit {
@@ -304,12 +301,40 @@
         width: 238px;
     }
 
-
-
     .editor__btn-submit {
         width: 238px;
         height: 46px;
     }
+
+
+    .submit__form {
+        padding: 25px 22px;
+        position: absolute;
+        top: 130px;
+        left: 233px;
+    }
+
+    .submit__close {
+        width: 26px;
+        height: 26px;
+        position: absolute;
+        top: -29px;
+        left: 289px;
+
+    }
+
+    .submit__form-submit {
+        padding-top: 54px;
+        display: flex;
+        width: 238px;
+
+    }
+
+    .submit__btn-submit {
+        width: 238px;
+        height: 46px;
+    }
+
 
 }
 
@@ -391,8 +416,35 @@
     }
 
 
-
     .editor__btn-submit {
+        width: 238px;
+        height: 46px;
+    }
+
+    .submit__form {
+        padding: 25px 22px;
+        position: absolute;
+        top: 139px;
+        left: 19px;
+    }
+
+    .submit__close {
+        width: 26px;
+        height: 26px;
+        position: absolute;
+        top: -39px;
+        left: 265px;
+
+    }
+
+    .submit__form-submit {
+        padding-top: 76px;
+        display: flex;
+        width: 238px;
+
+    }
+
+    .submit__btn-submit {
         width: 238px;
         height: 46px;
     }

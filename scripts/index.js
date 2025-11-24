@@ -16,12 +16,15 @@ const linkValor = document.getElementById("link");
 const btnSave = document.getElementById("save")
 
 
+
 btnEdit.addEventListener("click", () => {
     modal.style.display = "flex";
 });
 close.addEventListener("click", () => {
     modal.style.display = "none";
 });
+
+
 btnSubmi.addEventListener("click", () => {
     modalSubmit.style.display = "flex";
 });
@@ -32,9 +35,6 @@ closeSubmit.addEventListener("click", () => {
 document.getElementById('formProfile').addEventListener('submit', (e) => {
     e.preventDefault();
     const name = nameValor.value.trim();
-
-
-
     const bio = bioValor.value.trim();
     document.getElementById('usuareProfile').textContent = name;
     document.getElementById('bioProfile').textContent = bio;
@@ -81,6 +81,18 @@ save.addEventListener("click", function (e) {
     clone.querySelector(".card__like").addEventListener("click", function (evt) {
         evt.target.classList.toggle("card__like_active");
     });
+    clone.querySelector(".card__image").addEventListener("click", function (evt) {
+
+        modalImage.src = evt.target.src;
+        modalImage.alt = evt.target.alt;
+        modalFooter.textContent = evt.target.alt;
+
+        imageModal.style.display = "flex";
+    });
+    clone.querySelector(".card__delet").addEventListener("click", function (evt) {
+        const cardDelet = evt.target.closest(".card");
+        if (cardDelet) cardDelet.remove();
+    });
 
     card.prepend(clone);
 
@@ -94,15 +106,16 @@ save.addEventListener("click", function (e) {
 });
 
 
-
-
-
 formProfile.addEventListener("keyup", validar)
 
 
 const template = document.getElementById("post-template");
 const card = document.getElementById("cards-container");
 const postCard = document.createDocumentFragment();
+const imageModal = document.getElementById("imageModal");
+const modalImage = document.getElementById("modalImage");
+const modalFooter = document.getElementById("modalFooter");
+const closeImageBtn = document.getElementById("closeImage");
 
 
 const cardContent = [
@@ -143,6 +156,23 @@ cardContent.forEach(el => {
     clone.querySelector(".card__like").addEventListener("click", function (evt) {
         evt.target.classList.toggle("card__like_active");
     });
+    clone.querySelector(".card__image").addEventListener("click", function (evt) {
+
+        modalImage.src = evt.target.src;
+        modalImage.alt = evt.target.alt;
+        modalFooter.textContent = evt.target.alt;
+
+        imageModal.style.display = "flex";
+    });
+    clone.querySelector(".card__delet").addEventListener("click", function (evt) {
+        const cardDelet = evt.target.closest(".card");
+        if (cardDelet) cardDelet.remove();
+    });
     postCard.appendChild(clone);
 });
 card.appendChild(postCard);
+
+
+closeImage.addEventListener("click", () => {
+    imageModal.style.display = "none";
+});
