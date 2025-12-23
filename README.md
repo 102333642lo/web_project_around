@@ -1,4 +1,30 @@
 # Tripleten web_project_around
+proyacto, sprit 9
+https://102333642lo.github.io/web_project_around/
+Explicación del proyecto en JavaScript
+
+Explicación del proyecto
+
+En este proyecto nos enfocamos en la validación de formularios, con el objetivo de hacer el código más organizado, limpio y fácil de mantener. Además, se incluyeron algunos atajos de teclado, lo que mejora la experiencia del usuario al interactuar con la web.
+
+Dentro de la carpeta scripts encontramos dos archivos principales: index.js y validate.js.
+En el archivo index.js se gestiona la lógica principal de la web, sin embargo, lo primero que analizamos es el archivo validate.js, ya que allí se concentra toda la lógica relacionada con la validación de los formularios. Esto nos permite continuar la explicación de una manera más organizada.
+
+Archivo validate.js
+En validate.js encontramos, en primer lugar, un objeto de configuración donde se definen varias constantes con nombres descriptivos. Estas constantes se utilizan posteriormente dentro de las funciones de validación, lo que facilita la interacción con los formularios y hace el código más reutilizable.
+La primera función importante es showInputError, donde indicamos que, cuando una validación no se cumple, se debe mostrar un mensaje de error asociado al input correspondiente mediante la clase .${inputElement.id}-error.Por el contrario, la función hideInputError se encarga de ocultar el mensaje de error cuando el campo cumple correctamente con las validaciones.
+También contamos con la función getErrorMessage, donde se definen los distintos mensajes de error. Por ejemplo:Si el campo está vacío, se muestra un mensaje indicando que es obligatorio.Si no se cumplen los caracteres mínimos o máximos, se muestra un mensaje informativo. En el caso del campo de tipo URL, si el formato no es válido, se muestra un mensaje específico indicando el error.
+La función checkInputValidity se encarga de validar cada campo de forma individual. Aquí se verifica si el input tiene un valor válido; en caso contrario, se muestra el error correspondiente, y si es válido, el error se oculta.Luego utilizamos la constante hasInvalidInput, que retorna un valor booleano indicando si alguno de los campos del formulario es inválido.
+Esta función es utilizada dentro de toggleButtonState, donde se habilita o deshabilita el botón de envío. Si existe algún campo inválido, el botón permanece desactivado; de lo contrario, el botón se activa.
+A continuación, encontramos la función setEventListeners, donde se asignan los eventos de validación a los formularios. Aquí se indica que, si los campos no contienen información válida, el botón de envío no se activa.En esta función se utilizan dos eventos importantes:
+input, que valida el campo mientras el usuario escribe y muestra el mensaje de error correspondiente si el valor no es válido.
+blur, que valida si el usuario deja el campo vacío al salir de él y muestra el error correspondiente.
+finalmente, se utiliza formList junto con un array para recorrer todos los formularios y evitar que la página se recargue al enviarlos, manteniendo así el comportamiento controlado mediante JavaScript.
+Archivo index.js
+De regreso en index.js, encontramos dos funciones adicionales relacionadas con la experiencia del usuario.
+La primera permite cerrar los modales al hacer clic fuera de ellos, utilizando una función que recibe como argumento modalElement y detecta los clics fuera del contenido del modal. Esta función se vincula tanto a los formularios como al modal de imagen.
+La segunda funcionalidad es un atajo de teclado, donde se escucha el evento de la tecla Escape (ESC). Cada vez que el usuario presiona esta tecla, el modal activo se cierra automáticamente. Esta función también se vincula a los formularios y al modal de imagen
+
 proyacto, sprit 8
 https://102333642lo.github.io/web_project_around/
 Explicación del proyecto en JavaScript
