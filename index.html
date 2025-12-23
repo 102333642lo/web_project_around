@@ -32,11 +32,21 @@
                         <span id="closeEdit" class="editor__close"></span>
 
                         <h2 class="editor__tiulo">Editar perfil</h2>
-                        <form action="" id="formProfile" class="editor__form-edit">
+                        <form action="" id="formProfile" class="editor__form-edit" novalidate>
+                            <label>
+                                <input type="text" placeholder="Nombre" id="name" class="editor__text" required
+                                    minlength="2" maxlength="40">
+                                <span class="form__input-error name-error"></span>
+                            </label>
+                            <label>
+                                <input type="text" placeholder="Acerca de mí" id="bio" class="editor__text" required
+                                    minlength="2" maxlength="200">
+                                <span class="form__input-error bio-error"></span>
 
-                            <input type="text" placeholder="Nombre" id="name" class=" editor__text" required>
-                            <input type="text" placeholder="Acerca de mí" id="bio" class="editor__text" required>
+                            </label>
+
                             <button id="submitForm" disabled type="submit" class="editor__btn-submit">Guardar</button>
+
                         </form>
                     </div>
                 </div>
@@ -45,10 +55,17 @@
                         <span id="closeSubmit" class="submit__close"></span>
 
                         <h2 class="submit__tiulo">Nuevo lugar</h2>
-                        <form action="" id="updateFormS" class="submit__form-submit">
-
-                            <input type="text" placeholder="Título" id="title" class=" submit__name " required>
-                            <input type="text" placeholder="Enlace a la imagen" id="link" class="submit__img" required>
+                        <form action="" id="updateFormS" class="submit__form-submit" novalidate>
+                            <label>
+                                <input type="text" placeholder="Título" id="title" class="submit__name" required
+                                    minlength="2" maxlength="30">
+                                <span class="form__input-error title-error"></span>
+                            </label>
+                            <label>
+                                <input type="url" placeholder="Enlace a la imagen" id="link" class="submit__img"
+                                    required>
+                                <span class="form__input-error link-error"></span>
+                            </label>
                             <button id="save" disabled type="submit" class="submit__btn-submit">Crear
                             </button>
                         </form>

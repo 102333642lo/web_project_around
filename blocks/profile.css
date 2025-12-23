@@ -108,12 +108,16 @@
     gap: 30px;
 }
 
+.editor__form-edit label {
+    position: relative;
+}
+
 .editor__text {
     height: 28px;
+    width: 100%;
     border: 0;
     border-bottom: 1px solid #C4C4C4;
 }
-
 
 
 .editor__btn-submit {
@@ -208,31 +212,55 @@
     gap: 30px;
 }
 
+.submit__form-submit label {
+    position: relative;
+}
+
 .submit__name {
     height: 28px;
+    width: 100%;
     border: 0;
     border-bottom: 1px solid #C4C4C4;
+
 }
 
 .submit__img {
     height: 28px;
+    width: 100%;
     border: 0;
     border-bottom: 1px solid #C4C4C4;
 }
-
-
 
 .submit__btn-submit {
     width: 358px;
     height: 50px;
     color: #fefefe;
+}
+
+
+#save.activo {
+    color: #fefefe;
     background-color: black;
+    cursor: pointer;
 }
 
-.form__button_submit:hover {
-    opacity: 0.7;
+.form__input-error {
+    font-size: 12px;
+    color: red;
+    opacity: 0;
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    transition: 0.3s;
 }
 
+.form__input-error_active {
+    opacity: 1;
+}
+
+.form__input_type_error {
+    border-bottom: 1px solid rgba(255, 0, 0, 0.938);
+}
 
 
 
