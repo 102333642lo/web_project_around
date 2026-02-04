@@ -1,4 +1,4 @@
-const formElement = document.querySelector(".editor__form-edit, .submit__form-submit");
+
 export const validationConfig = {
     inputSelector: ".editor__text, .submit__name, .submit__img",
     submitButtonSelector: ".editor__btn-submit, .submit__btn-submit",

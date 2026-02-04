@@ -1,4 +1,54 @@
 # Tripleten web_project_around
+proyacto, sprit 10
+https://102333642lo.github.io/web_project_around/
+Explicación de mi proyecto en JavaScript
+En este proyecto nos enfocamos principalmente en el paradigma de Programación Orientada a Objetos (OOP). Para lograrlo, modificamos el código que ya teníamos y lo reorganizamos para que trabajara con clases, constructores y métodos, haciendo el proyecto más ordenado, reutilizable y fácil de mantener.
+También utilizamos una técnica nueva que no habíamos usado en el proyecto anterior: exportar e importar archivos de JavaScript, lo que nos permitió dividir el código en diferentes archivos según su responsabilidad.
+Estructura del proyecto
+En el proyecto encontramos cuatro archivos principales de JavaScript:
+
+  index.js
+Este es el archivo principal del proyecto.
+Aquí realizamos las importaciones de los demás archivos JavaScript.
+En este archivo llamamos algunos módulos sin especificarlos directamente, ya que no necesitamos que devuelvan información, solo que ejecuten su funcionalidad.
+En cambio, cuando trabajamos con Card, sí especificamos la importación porque este archivo sí devuelve información, como las tarjetas por defecto que se muestran en la plataforma.
+Además, en index.js encontramos la función que permite crear una nueva card y colocarla al frente de las demás tarjetas, para que el usuario la vea inmediatamente.
+
+  utils.js
+En este archivo se encuentran las funciones reutilizables, especialmente las relacionadas con las ventanas modales.
+Aquí manejamos:
+Abrir y cerrar los modales
+Cerrar el modal al hacer clic en el ícono de cierre
+Cerrar con la tecla Esc
+Cerrar al hacer clic fuera de la ventana modal
+Todo esto se logra gracias a los detectores de eventos, mejorando la experiencia del usuario.
+
+ card.js
+Este archivo contiene la estructura de la clase Card, completamente orientada a objetos.
+En el constructor trabajamos con todos los datos necesarios de la tarjeta, y también usamos _templateSelector para seleccionar el template donde se mostrará la información en el HTML.
+Dentro de la clase tenemos:
+Métodos privados, donde obtenemos el template y preparamos la tarjeta
+Un método público, que se encarga de devolver toda la información de la tarjeta ya lista para insertarse en el HTML
+También se llama al método privado this._setEventListeners(), donde agregamos los addEventListener para cada acción de la tarjeta:
+Dar like
+Eliminar la tarjeta
+Abrir la imagen en grande
+Esto hace que cada card tenga su propia lógica y comportamiento independiente.
+
+  FormValidator.js
+En este archivo manejamos toda la validación de los formularios.
+Aquí encontramos la clase FormValidator, que en su constructor recibe toda la configuración previamente organizada en validationConfig.
+Dentro de la clase tenemos varios métodos privados importantes:
+_showInputError: muestra los mensajes de error
+_hideInputError :oculta los errores
+_getErrorMessage : identifica y muestra qué tipo de error tiene cada campo
+_hasInvalidInput :revisa todos los campos del formulario.( Este método devuelve true si al menos uno de los inputs es inválido, y false si todos son correctos.)
+_toggleButtonState: controla el estado del botón de envío. Este mismo botón funciona tanto para “Guardar” como para “Crear”, ya que ambos comparten el mismo estilo en el CSS.
+_setEventListeners: conecta toda la validación con los eventos, tiene detectores de eventos input y blur a cada campo, para que la validación ocurra mientras el usuario escribe o cuando sale del campo.
+Y terminamos con  el método público enableValidation que activar toda la validación llamando a _setEventListeners.
+Estos métodos funcionan de forma similar al proyecto anterior, pero ahora están mejor organizados dentro de una clase, lo que hace el código más limpio 
+
+
 proyacto, sprit 9
 https://102333642lo.github.io/web_project_around/
 Explicación del proyecto en JavaScript
