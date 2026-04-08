@@ -1,4 +1,33 @@
 # Tripleten web_project_around
+proyacto, sprit 11
+https://102333642lo.github.io/web_project_around/
+En este proyecto trabajamos en una página web dinámica que permite al usuario interactuar con tarjetas de lugares y con su perfil. Toda la funcionalidad de la página se organiza mediante clases y objetos, lo que hace que el código sea más ordenado, modular y fácil de mantener.
+
+El proyecto está dividido en varias carpetas y archivos de JavaScript, cada uno con responsabilidades claras. Esto nos permite separar la lógica de los distintos componentes de la página y reutilizarla cuando sea necesario.
+Popup
+Es la clase base para todas las ventanas emergentes (modales).
+Gestiona la apertura y cierre de cualquier popup en la página.
+
+PopupWithForm
+Hereda de Popup.
+Especializada en formularios dentro de los popups.
+Añade funcionalidad específica:
+Recopila los valores de todos los campos del formulario (_getInputValues()).
+Escucha el evento submit para ejecutar un callback con los datos del formulario.
+Reinicia el formulario al cerrar el popup.
+
+PopupWithImage
+También hereda de Popup.
+Está diseñada para mostrar imágenes en grande.
+
+Card
+Representa cada tarjeta de lugar en la página.
+Contiene la información de la tarjeta: nombre y URL de la imagen.
+Tiene métodos para:
+Dar “like”
+Eliminar la tarjeta
+Abrir la imagen en grande al hacer clic
+
 proyacto, sprit 10
 https://102333642lo.github.io/web_project_around/
 Explicación de mi proyecto en JavaScript
