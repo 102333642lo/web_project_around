@@ -40,3 +40,13 @@
     max-height: 75vh;
 
 }
+
+.popup {
+    display: none;
+}
+
+.popup_opened {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

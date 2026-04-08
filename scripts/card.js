@@ -1,13 +1,12 @@
-//open card modal image 
-const imageModal = document.getElementById("imageModal");
-const modalImage = document.getElementById("modalImage");
-const modalFooter = document.getElementById("modalFooter");
+
+
 
 export class Card {
-    constructor(data, templateSelector) {
+    constructor(data, templateSelector, handleCardClick) {
         this._name = data.name;
         this._link = data.link;
         this._templateSelector = templateSelector;
+        this._handleCardClick = handleCardClick; // callback 
     }
 
     // Obtener template
@@ -18,6 +17,7 @@ export class Card {
             .querySelector(".card")
             .cloneNode(true);
     }
+
 
     // Crear card
     generateCard() {
@@ -48,28 +48,20 @@ export class Card {
         this._element = null;
     }
 
-    // 🖼 Abrir imagen
-    _handleOpenImage() {
-        modalImage.src = this._link;
-        modalImage.alt = this._name;
-        modalFooter.textContent = this._name;
-
-        imageModal.style.display = "flex";
-    }
 
     // Eventos
     _setEventListeners() {
-        this._likeButton.addEventListener("click", () =>
-            this._handleLikeClick()
+        this._likeButton.addEventListener("click", () => this._handleLikeClick()
         );
 
-        this._deleteButton.addEventListener("click", () =>
-            this._handleDeleteClick()
+        this._deleteButton.addEventListener("click", () => this._handleDeleteClick()
         );
 
-        this._imageElement.addEventListener("click", () =>
-            this._handleOpenImage()
-        );
+        this._imageElement.addEventListener("click", () => {
+            if (this._handleCardClick) {
+                this._handleCardClick({ name: this._name, link: this._link });
+            }
+        });
     }
 
-}
+} 
