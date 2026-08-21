@@ -1,7 +1,7 @@
 
 export const validationConfig = {
-    inputSelector: ".editor__text, .submit__name, .submit__img",
-    submitButtonSelector: ".editor__btn-submit, .submit__btn-submit",
+    inputSelector: ".editor__text, .submit__name, .submit__img, .avatar__img",
+    submitButtonSelector: ".editor__btn-submit, .submit__btn-submit, .avatar__btn-submit",
     activeButtonClass: "activo",
     inputErrorClass: "form__input_type_error",
     errorClass: "form__input-error_active"
@@ -115,3 +115,7 @@ FromValidator1.enableValidation();
 const formSubmit = document.querySelector(".submit__form-submit");
 const FromValidator2 = new FormValidator(validationConfig, formSubmit);
 FromValidator2.enableValidation()
+
+const formAvatar = document.querySelector(".avatar__form-submit");
+const FromValidator3 = new FormValidator(validationConfig, formAvatar);
+FromValidator3.enableValidation();

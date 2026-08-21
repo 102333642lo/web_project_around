@@ -20,7 +20,10 @@
         </header>
         <main class="content">
             <section class="profile">
-                <img class="profile__imagen" src="./images/Avatar.png" alt="imagen de perfil">
+                <div class="profile__avatar-container">
+                    <img class="profile__imagen" src="./images/Avatar.png" alt="imagen de perfil">
+                    <button id="openAvatar" type="submit" class="avatar__btnedit" alt=" lapis de edicion"></button>
+                </div>
                 <div class="profile__info">
                     <h1 class="profile__usuario" id="usuareProfile">Jacques Cousteau</h1>
                     <button id="openEdit" type="submit" class="profile__btnedit" alt=" lapis de edicion"></button>
@@ -35,13 +38,13 @@
                         <h2 class="editor__tiulo">Editar perfil</h2>
                         <form action="" id="formProfile" class="editor__form-edit" novalidate>
                             <label>
-                                <input type="text" placeholder="Nombre" id="name" class="editor__text" required
-                                    minlength="2" maxlength="40">
+                                <input type="text" placeholder="Nombre" id="name" name="name" class="editor__text"
+                                    required minlength="2" maxlength="40">
                                 <span class="form__input-error name-error"></span>
                             </label>
                             <label>
-                                <input type="text" placeholder="Acerca de mí" id="bio" class="editor__text" required
-                                    minlength="2" maxlength="200">
+                                <input type="text" placeholder="Acerca de mí" id="bio" name="bio" class="editor__text"
+                                    required minlength="2" maxlength="200">
                                 <span class="form__input-error bio-error"></span>
 
                             </label>
@@ -59,16 +62,46 @@
                         <h2 class="submit__tiulo">Nuevo lugar</h2>
                         <form action="" id="updateFormS" class="submit__form-submit" novalidate>
                             <label>
-                                <input type="text" placeholder="Título" id="title" class="submit__name" required
-                                    minlength="2" maxlength="30">
+                                <input type="text" placeholder="Título" id="title" name="title" class="submit__name"
+                                    required minlength="2" maxlength="30">
                                 <span class="form__input-error title-error"></span>
                             </label>
                             <label>
-                                <input type="url" placeholder="Enlace a la imagen" id="link" class="submit__img"
-                                    required>
+                                <input type="url" placeholder="Enlace a la imagen" id="link" name="link"
+                                    class="submit__img" required>
                                 <span class="form__input-error link-error"></span>
                             </label>
                             <button id="save" disabled type="submit" class="submit__btn-submit ">Crear
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="avatar" class="popup avatarEdit">
+                    <div class="avatar__form">
+                        <span class="avatar__close popup__close"></span>
+
+                        <h2 class="avatar__tiulo">Cambiar foto de perfil </h2>
+                        <form action="" id="avatarForm" class="avatar__form-submit" class="avatar__form-submit">
+                            <label>
+                                <input type="url" placeholder="sube tu nueva foto " id="avatarLink" name="avatar"
+                                    class="avatar__img" required>
+                                <span class="form__input-error avatarLink-error"></span>
+                            </label>
+                            <button id="saveAvatar" disabled type="submit" class="avatar__btn-submit">Guardar
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+
+                <div id="delet" class="popup delet">
+                    <div class="delet__card">
+                        <span class="delet__close popup__close"></span>
+
+                        <h2 class="delet__tiulo">¿Estás seguro/a?</h2>
+                        <form class="delet__form-delet">
+                            <button type="submit" class="delet__btn-delet ">Si
                             </button>
                         </form>
                     </div>
@@ -81,7 +114,7 @@
                             <img class="card__image">
                             <h3 class="card__footer"></h3>
                             <button class=" card__like "></button>
-                            <button class="card__delet"></button>
+                            <button class="card__delet" id="openDelet"></button>
                         </div>
                     </li>
                 </template>

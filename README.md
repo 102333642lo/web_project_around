@@ -28,6 +28,7 @@ Dar “like”
 Eliminar la tarjeta
 Abrir la imagen en grande al hacer clic
 
+
 proyacto, sprit 10
 https://102333642lo.github.io/web_project_around/
 Explicación de mi proyecto en JavaScript

@@ -3,13 +3,26 @@
     max-width: 880px;
     padding-top: 40px;
     display: flex;
+}
 
+.profile__avatar-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    flex-shrink: 0;
+    cursor: pointer;
 }
 
 .profile__imagen {
     width: 120px;
     height: 120px;
-    padding-right: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+.profile__avatar-container:hover .profile__imagen {
+    opacity: 0.5;
 }
 
 .profile__info {
@@ -17,6 +30,7 @@
     display: flex;
     flex-direction: column;
     position: relative;
+    margin-left: 30px;
 }
 
 .profile__usuario {
@@ -263,6 +277,190 @@
 }
 
 
+.delet {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.delet__card {
+    background-color: #fefefe;
+    padding: 35px 36px;
+    border: 1px solid #888;
+    color: #C4C4C4;
+    border-radius: 10px;
+    position: absolute;
+    top: 195px;
+    left: 425px;
+}
+
+.delet__close {
+    color: #ffff;
+    background-image: url(../images/Close\ Icon.png);
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: -39px;
+    left: 435px;
+
+}
+
+.delet__tiulo {
+    color: black;
+    font-size: 24px;
+    margin: 0px;
+
+}
+
+.delet__close:hover {
+    opacity: 0.7;
+}
+
+.delet__form-delet {
+    color: #C4C4C4;
+    padding-top: 54px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.delet__form-delet label {
+    position: relative;
+}
+
+.delet__btn-delet {
+    width: 358px;
+    height: 50px;
+    color: #fefefe;
+    background-color: black;
+    border: none;
+    cursor: pointer;
+}
+
+.delet__btn-delet:hover {
+    opacity: 0.7;
+}
+
+.avatarEdit {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.avatar__form {
+    background-color: #fefefe;
+    padding: 35px 36px;
+    border: 1px solid #888;
+    color: #C4C4C4;
+    border-radius: 10px;
+    position: absolute;
+    top: 195px;
+    left: 425px;
+}
+
+.avatar__close {
+    color: #ffff;
+    background-image: url(../images/Close\ Icon.png);
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: -39px;
+    left: 435px;
+
+}
+
+.avatar__tiulo {
+    color: black;
+    font-size: 24px;
+    margin: 0px;
+
+}
+
+.avatar__close:hover {
+    opacity: 0.7;
+}
+
+.avatar__form-submit {
+    color: #C4C4C4;
+    padding-top: 54px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.avatar__form-submit label {
+    position: relative;
+}
+
+.avatar__img {
+    height: 28px;
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid #C4C4C4;
+}
+
+.avatar__btn-submit {
+    width: 358px;
+    height: 50px;
+    color: #fefefe;
+}
+
+.avatar__btnedit {
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    top: 49px;
+    left: 49px;
+    z-index: 2;
+    border: none;
+    background: transparent;
+    background-image: url(../images/Vector2.png);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.profile__avatar-container:hover .avatar__btnedit {
+    opacity: 1;
+}
+
+#saveAvatar.activo {
+    color: #fefefe;
+    background-color: black;
+    cursor: pointer;
+}
+
+
+.profile__avatar-container {
+    position: relative;
+
+}
+
+
+
+
 
 @media screen and (max-width : 880px) {
     .profile {
@@ -362,6 +560,36 @@
         width: 238px;
         height: 46px;
     }
+
+    .delet__card {
+        padding: 25px 22px;
+        position: absolute;
+        top: 130px;
+        left: 233px;
+    }
+
+    .delet__close {
+        width: 26px;
+        height: 26px;
+        position: absolute;
+        top: -29px;
+        left: 289px;
+
+    }
+
+
+    .delet__form-delet {
+        padding-top: 54px;
+        display: flex;
+        width: 238px;
+    }
+
+    .delet__btn-delet {
+        width: 238px;
+        height: 46px;
+    }
+
+
 
 
 }
@@ -473,6 +701,34 @@
     }
 
     .submit__btn-submit {
+        width: 238px;
+        height: 46px;
+    }
+
+    .delet__card {
+        padding: 25px 22px;
+        position: absolute;
+        top: 139px;
+        left: 19px;
+    }
+
+    .delet__close {
+        width: 26px;
+        height: 26px;
+        position: absolute;
+        top: -39px;
+        left: 265px;
+
+    }
+
+
+    .delet__form-delet {
+        padding-top: 76px;
+        display: flex;
+        width: 238px;
+    }
+
+    .delet__btn-delet {
         width: 238px;
         height: 46px;
     }

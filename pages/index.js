@@ -5,6 +5,11 @@ import Popup from "../scripts/Popup.js";
 import PopupWithImage from "../scripts/PopupWithImage.js";
 import PopupWithForm from "../scripts/PopupWithForm.js";
 import UserInfo from "../scripts/UserInfo.js";
+import Api from "../scripts/Api.js";
+import PopupWithConfirmation from "../scripts/PopupWithConfirmation.js";
+
+
+
 
 // open form sutmint new location -title and link
 const titleValor = document.getElementById("title");
@@ -17,9 +22,22 @@ const nameInput = document.getElementById("name");
 const bioInput = document.getElementById("bio");
 const btnSubmi = document.getElementById("openSutmit");
 
+
 const editPopup = new Popup('#edit');
 const submitPopup = new Popup('#update');
 const imagePopup = new PopupWithImage('#imageModal');
+const deletPopup = new PopupWithConfirmation('#delet');
+
+//cramos el token y la API
+const token = "b3c1de05-1a2a-4f4a-89cd-93c6cd516e11";
+
+const api = new Api({
+    baseUrl: "https://around-api.es.tripleten-services.com/v1",
+    headers: {
+        authorization: token,
+        "Content-Type": "application/json",
+    },
+});
 
 //  image for default 
 const cardContent = [
@@ -52,62 +70,173 @@ const cardContent = [
 
 editPopup.setEventListeners();
 submitPopup.setEventListeners();
-imagePopup.setEventListeners()
-// musta da ubicasin de los datos para mostarlos en el form 
+imagePopup.setEventListeners();
+deletPopup.setEventListeners();
+
+// muestra la ubicacion de los datos para mostarlos en el form 
 const userInfo = new UserInfo({
     nameSelector: '#usuareProfile',
-    workSelector: '#bioProfile'
+    workSelector: '#bioProfile',
+    avatarSelector: '.profile__imagen'
 });
+let cardList;
 
+let currentUser;
+//avarat
+const avatarPopup = new PopupWithForm("#avatar", (inputValues) => {
+    const button = document.querySelector("#saveAvatar");
 
-// card
-const cardList = new Section({
-    items: cardContent,
-    renderer: (item) => {
-        //callback para abrir la imagen
-        const card = new Card(item, "#post-template", (cardData) => {
-            imagePopup.open({ link: cardData.link, name: cardData.name });
-        });
-        const cardElement = card.generateCard();
-        cardList.addItem(cardElement);
-    }
-}, "#cards-container");
-
-cardList.renderItems();
-
-//app and save new card 
-btnSave.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    const newCard = {
-        name: titleValor.value.trim(),
-        link: linkValor.value.trim(),
+    button.textContent = "Guardando...";
+    const data = {
+        avatar: inputValues.avatar,
     };
-    cardList._items.unshift(newCard);
 
-    // card NUEVA PARA ABrir
-    const newCardData = new Card(newCard, "#post-template", (cardData) => {
-        imagePopup.open({ link: cardData.link, name: cardData.name });
-    });
-    const cardElement = newCardData.generateCard();
+    api.editAvatar(data)
+        .then((userData) => {
+            console.log("AVATAR ACTUALIZADO:", userData);
+            currentUser = userData;
 
-    // contenedor
-    cardList.addItem(cardElement);
-    cardList._container.prepend(cardElement);
+            userInfo.setUserInfo({
+                name: userData.name,
+                work: userData.about,
+                avatar: userData.avatar,
+            });
 
-
-    titleValor.value = "";
-    linkValor.value = "";
-
-    submitPopup.close();
+            avatarPopup.close();
+        })
+        .catch((err) => {
+            console.log("ERROR AL CAMBIAR AVATAR:", err);
+        });
 });
+avatarPopup.setEventListeners();
+
+const openAvatar = document.getElementById("openAvatar");
+
+openAvatar.addEventListener("click", (evt) => {
+    evt.preventDefault();
+    avatarPopup.open();
+});
+
+
+//INSTANCIAS POPUPWITHFORM 
+const editPopupW = new PopupWithForm("#edit", (inputValues) => {
+    const data = {
+        name: inputValues.name,
+        about: inputValues.bio,
+    };
+    const button = document.querySelector("#submitForm");
+
+    button.textContent = "Guardando...";
+
+    //muestra en la consola la respuesta el POST CUANDO SE EDITA EL USUARIO 
+    api.editUserInfo(data)
+        .then((data) => {
+            console.log("RESPUESTA PATCH:", data);
+
+            userInfo.setUserInfo({
+                name: data.name,
+                work: data.about,
+            });
+        })
+        .catch((err) => {
+            console.log("ERROR PATCH:", err);
+        });
+});
+
+editPopupW.setEventListeners();
+
+// card en la pagina y se muatra en el servidor y la consola con las caractelisticas de card 
+//api.getInitialCards()
+Promise.all([
+    api.getUserInfo(),
+    api.getInitialCards()
+])
+    .then(([user, cards]) => {
+        currentUser = user;
+
+        console.log("MI USUARIO:", currentUser);
+        userInfo.setUserInfo({
+            name: user.name,
+            work: user.about,
+            avatar: user.avatar
+        });
+
+        cardList = new Section({
+            items: cards,
+
+            renderer: (item) => {
+                const isOwner = item.owner === currentUser._id;
+
+                console.log("CARD OWNER:", item.owner);
+                const card = new Card(
+                    item,
+                    "#post-template",
+
+                    // IMAGEN
+                    (cardData) => {
+                        imagePopup.open({
+                            link: cardData.link,
+                            name: cardData.name,
+                        });
+                    },
+
+                    // ELIMINAR
+                    (cardId, cardElement) => {
+                        deletPopup.setSubmitAction(() => {
+                            api.deleteCard(cardId)
+                                .then(() => {
+                                    cardElement.remove();
+                                    deletPopup.close();
+                                    console.log("SE ELIMINÓ");
+                                })
+                                .catch((err) => {
+                                    console.log("ERROR AL ELIMINAR:", err);
+                                });
+                        });
+
+                        deletPopup.open();
+                    },
+
+                    // LIKE
+                    (cardId, isLiked) => {
+                        if (isLiked) {
+                            return api.deleteLikeCard(cardId)
+                                .then((cardData) => {
+                                    console.log("LIKE ELIMINADO:", cardData);
+                                    return cardData.isLiked;
+                                });
+                        }
+
+                        return api.likeCard(cardId)
+                            .then((cardData) => {
+                                console.log("LIKE AGREGADO:", cardData);
+                                return cardData.isLiked;
+                            });
+                    },
+
+                    // usuario
+                    isOwner
+                );
+
+                const cardElement = card.generateCard();
+                cardList.addItem(cardElement);
+            },
+        }, "#cards-container");
+
+        cardList.renderItems();
+
+        console.log("MIS TARJETAS:", cards);
+    })
+    .catch((err) => {
+        console.log("ERROR:", err);
+    });
 
 
 btnEdit.addEventListener("click", () => {
     const currentUser = userInfo.getUserInfo();
     nameInput.value = currentUser.name;
-    bioInput.value = currentUser.job;
-    editPopup.open();
+    bioInput.value = currentUser.work;
+    editPopupW.open();
 });
 
 btnSubmi.addEventListener("click", () => {
@@ -115,37 +244,68 @@ btnSubmi.addEventListener("click", () => {
     submitPopup.open();
 });
 
-// submit info of editprofile  
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    document.getElementById("usuareProfile").textContent = nameInput.value.trim();
-    document.getElementById("bioProfile").textContent = bioInput.value.trim();
-    editPopup.close();
-});
-//INSTANCIAS POPUPWITHFORM 
-const editPopupW = new PopupWithForm('#edit', (inputValues) => {
-    userInfo.setUserInfo({
-        name: inputValues.name,
-        job: inputValues.bio
-    });
-});
-editPopupW.setEventListeners();
-
-// Popup de agregar nueva tarjeta
+// Popup de agregar nueva tarjeta con la aacion de eliminar 
 const submitPopupW = new PopupWithForm('#update', (inputValues) => {
+
+    const button = document.querySelector("#save");
+
+    button.textContent = "Creando...";
     const newCard = {
         name: inputValues.title,
         link: inputValues.link
     };
+    api.addCard(newCard)
+        .then((cardData) => {
+            console.log("NUEVA TERJETA", cardData);
 
-    const cardElement = new Card(newCard, "#post-template", (cardData) => {
-        document.getElementById("modalImage").src = cardData.link;
-        document.getElementById("modalImage").alt = cardData.name;
-        document.getElementById("modalFooter").textContent = cardData.name;
-        imagePopup.open();
-    }).generateCard();
+            //crea una nueva card en el contenedor
+            const cardElement = new Card(cardData, "#post-template", (cardData) => {
+                imagePopup.open({
+                    link: cardData.link,
+                    name: cardData.name
+                });
+            }, //se crea la crajeta con la funcion de eliminar
 
-    cardList.addItem(cardElement);
+                (cardId, cardElement) => {
+                    deletPopup.setSubmitAction(() => {
+                        api.deleteCard(cardId)
+                            .then(() => {
+                                cardElement.remove();
+                                deletPopup.close();
+                                console.log("SE ELIMINO CORRECTAMETE ")
+                            })
+                            .catch((err) => {
+                                console.log("ERRO ED ELIMINAR", err);
+
+                            });
+                    });
+                    deletPopup.open();
+                },  //  Like
+                (cardId, isLiked) => {
+                    if (isLiked) {
+                        return api.deleteLikeCard(cardId)
+                            .then((cardData) => {
+                                console.log("LIKE ELIMINADO:", cardData);
+                                return cardData.isLiked;
+                            });
+                    }
+
+                    return api.likeCard(cardId)
+                        .then((cardData) => {
+                            console.log("LIKE ", cardData);
+                            return cardData.isLiked;
+                        });
+                }, true
+            ).generateCard();
+
+            cardList._container.prepend(cardElement);
+
+            submitPopupW.close();
+        })
+        .catch((err) => {
+            console.log("ERROR AL CREAR TARJETA:", err);
+        });
 });
+
 submitPopupW.setEventListeners();
+
