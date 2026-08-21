@@ -1,4 +1,17 @@
 # Tripleten web_project_around
+proyacto, sprit 12
+https://102333642lo.github.io/web_project_around/
+
+estamos manejando la misma intefas en este caso estanos trabajando con la comunicación del servidor q  nos permite mantener los cambios realizados por el usuario y q se mantengan disponibles al volver a cargar la página.
+   API REST: comunicación con el servidor para obtener, enviar, actualizar y eliminar información.
+   Fetch API: realización de solicitudes HTTP de manera asíncrona.
+   Promesas: manejo de las respuestas del servidor y de las operaciones asíncronas.
+  Programación orientada a objetos: utilización de clases como Api, Card, Section, Popup, PopupWithForm y UserInfo.
+   Validación de formularios: comprobación de los datos introducidos por el usuario antes de enviarlos.
+una API permite que la aplicación trabaje con datos reales almacenados en el servidor. De esta manera, las acciones realizadas por el usuario, como editar su perfil, cambiar su avatar, crear tarjetas o gestionar los "Me gusta", se procesan mediante solicitudes asíncronas sin necesidad de recargar toda la página.
+
+
+
 proyacto, sprit 11
 https://102333642lo.github.io/web_project_around/
 En este proyecto trabajamos en una página web dinámica que permite al usuario interactuar con tarjetas de lugares y con su perfil. Toda la funcionalidad de la página se organiza mediante clases y objetos, lo que hace que el código sea más ordenado, modular y fácil de mantener.
